@@ -1,0 +1,52 @@
+/*
+File: /~dlamorea/public_html/css/style.css
+Assignment 4: Update personal website using bootstrap
+Derek Lamoreaux - derek_lamoreaux@student.uml.edu
+UML Student in 91.61 GUI Programming I
+This part builds on your homework 2.You are to enhance that page with bootstrap. Now you need to handle your styling with Bootstrap. We will mainly be testing out your website fluidity (responsive and mobile friendly) and a good design using bootstrap.Bootstrap should be applied to all your pages
+File created 9/4/2020
+Updated 10/13/2020
+*/
+
+.header {
+    padding: 20px;
+    text-align: center;
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    background-image: url("../images/background2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+}
+
+.bertImg img{
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.col{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    min-height: 175px;
+    text-align: center;
+    margin: 10px;
+    width:auto;
+    margin-bottom: 50px;
+    border: 2px;
+    border-radius: 10px;
+}
+
+footer{
+    padding-top: 100px;
+    text-align: center;
+}
