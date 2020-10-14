@@ -50,3 +50,11 @@ footer{
     padding-top: 100px;
     text-align: center;
 }
+
+.bert img {
+    margin-left: auto;  
+    margin-right: auto;
+    margin-top: 15px;
+    margin bottom: 15px;
+    display: block;
+}
