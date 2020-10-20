@@ -1,0 +1,83 @@
+<!--
+File: /~dlamorea/public_html/index.html
+Assignment 2: Create a Personal Website
+Derek Lamoreaux - derek_lamoreaux@student.uml.edu
+UML Student in 91.61 GUI Programming I
+A simple HTML website to be updated throughout the semester. Also serves as an index for all out other assignments.
+File created 9/4/2020
+Updated 9/9/2020
+-->
+<!DOCTYPE html>
+<!-- Set language flag to english -->
+<html lang="en">
+<!-- begin head -->
+    <head>
+        <meta charset="utf-8">
+        <!-- Web title -->
+        <title>Derek Lamoreaux - GUI I</title>
+        <!-- Set Stylesheet -->
+        <link rel="stylesheet" href="css/bertstyle.css">
+    </head>
+    
+    <body>
+        <div class = header>
+            <!-- First header -->
+            <h1>Derek Lamoreaux</h1>
+            <!-- second header -->
+            <h4>Pictures of my Cat Bert</h4>
+        </div>
+        
+        <!-- Navigation bar, adapted from a tutorial on w3schools.com-->
+        <div class="nav">
+            <!-- goto index.html -->
+            <a href="index.html">Home</a>
+            <!-- goto bert.html -->
+            <a href="bert.html">Pictures of Bert</a>
+            <!-- goto instagram -->
+            <a href="https://www.instagram.com/wow_wow_wow_wow_wow_wow_wow/" target="_blank"> 
+                <img src="images/instalogo.png" 
+                     alt="Instagram Logo" 
+                     width="15"                
+                     height="15"/> 
+            </a>
+        </div>
+
+        <!-- three columns of bert pictures-->
+        <div class=row>
+            <div class=column>    
+                <img src="images/bert.png"
+                    alt="My cat Bert" 
+                     width="400" height="400"/>
+            </div>
+            <div class=column>    
+                <img src="images/bert2.png"
+                    alt="My cat Bert" 
+                    width="400" height="400"/>
+            </div>
+            <div class=column>    
+                <img src="images/bert3.png"
+                    alt="My cat Bert"
+                    width="400" height="400"/>
+            </div>
+        </div>
+        
+        <!-- footer start -->
+        <footer>
+            <p> <!-- CSS Validator image-->
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                        src="http://jigsaw.w3.org/css-validator/images/vcss"
+                        alt="Valid CSS!" />
+                </a>
+                <!-- HTML Validator image-->
+                <a href="https://validator.w3.org/check?uri=referer"><img
+                    src="http://www.w3.org/Icons/valid-html40.png"
+                    alt="Valid HTML 4.0!" height="31" width="88" />
+                </a>
+                
+            </p>
+            <p>&copy; Derek Lamoreaux 2020</p>
+        </footer>
+    </body>
+</html>
+                
