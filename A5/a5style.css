@@ -61,23 +61,47 @@ footer{
 
 #cont {
     margin-top: 50px;
-    overflow: visible;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0px;
+    padding-left: 0px;
     margin-top: 0px;
 }
 
 #wrap {
-    height: auto;
+    padding-left: 0px;
     overflow: auto;
-    max-height: 550px;
+    max-height: 1000px
+
+}
+
+#table {
+    padding-left: 0px;
+    margin-left: 0px;
+    color: black;
+    background-color: #b88c8f;
+}
+
+td:first-child {
+    background-color: #c47279;
+    font-weight: bold;
+    position: -webkit-sticky;
+    position: sticky;
+    left: -1px;
+    z-index: 1;
+}
+
+tr:first-child > td {
+    background-color: #c47279;
+    font-weight: bold;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -5px;
+    z-index: 2;
 }
 
 @media (max-width: 500px) {
     #wrap {
         height: auto;
         overflow: auto;
-        max-height: 550px;
-        width: 90%;
-    
+        width: 90%; 
+        max-height: 1000px
 }
