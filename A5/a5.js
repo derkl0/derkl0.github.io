@@ -1,4 +1,6 @@
 function getValues() {
+    var check = true;
+    
     var xMin = document.getElementById('x-min').value;
     var xMax = document.getElementById('x-max').value;
     var yMin = document.getElementById('y-min').value;
