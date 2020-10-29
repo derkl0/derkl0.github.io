@@ -81,18 +81,18 @@ Updated 10/28/2020
                     <!-- prompt for x axis -->
                     <label for="x-min">Please enter X-Axis Values:</label><br>
                     <!-- prompt x-min -->
-                    <input class="inputField" type="number" id="x-min" placeholder="X-Axis Min"placeholder="X-Axis Min">
+                    <input class="inputField" type="number" id="x-min" placeholder="X-Axis Min" onkeydown="return event.keyCode !== 69">
                     <!-- prompt x-max -->
-                    <input class="inputField" type="number" id="x-max" placeholder="X-Axis Max" ><br>
+                    <input class="inputField" type="number" id="x-max" placeholder="X-Axis Max" onkeydown="return event.keyCode !== 69"><br>
                     <!-- error handling -->
                     <div class="errorMessage" id="xMinError"></div>
                     <div class="errorMessage" id="xMaxError"></div>
                     <!-- prompt y -->
                     <label for="x-max">Please enter Y-Axis Values:</label><br>
                     <!-- prompt y-min -->
-                    <input class="inputField" type="number" id="y-min" placeholder="Y-Axis Min"placeholder="X-Axis Min">
+                    <input class="inputField" type="number" id="y-min" placeholder="Y-Axis Min" onkeydown="return event.keyCode !== 69">
                     <!-- prompt y-max -->
-                    <input class="inputField" type="number" id="y-max" placeholder="Y-Axis Max"><br>
+                    <input class="inputField" type="number" id="y-max" placeholder="Y-Axis Max" onkeydown="return event.keyCode !== 69"><br>
                     <!-- error handling -->
                     <div class="errorMessage" id="yMinError"></div>
                     <div class="errorMessage" id="yMaxError"></div><br>

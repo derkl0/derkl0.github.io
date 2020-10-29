@@ -18,7 +18,7 @@ function getValues() {
     var xMax = document.getElementById('x-max').value;
     var yMin = document.getElementById('y-min').value;
     var yMax = document.getElementById('y-max').value;
-
+    
     //set variables to use to print data
     var table = document.getElementById("table");
     var row = table.insertRow();
@@ -31,6 +31,8 @@ function getValues() {
     yMinError.innerHTML = "";
     yMaxError.innerHTML = "";
     generalError.innerHTML="";
+    
+    generalError.innerHTML= xMin + " " + xMax + " " + yMin + " " + yMax;
     
     //check inputs
     if(!(inputCheck(xMin, xMinError))) check = false;
@@ -56,7 +58,10 @@ function makeTable(xMin,xMax,yMin,yMax,table,row,cell){
         temp = xMin;
         xMin = xMax;
         xMax = temp;
-        generalError.innerHTML="X-Min and X-Max swapped";
+        if(generalError.innerHTML == ""){
+            generalError.innerHTML="X-Min and X-Max swapped";
+        }
+        else generalError.innerHTML+=" & X-Min and X-Max swapped";
     }
 
     //if min > max swap and display a non-fatal error
@@ -67,7 +72,7 @@ function makeTable(xMin,xMax,yMin,yMax,table,row,cell){
         if(generalError.innerHTML == ""){
             generalError.innerHTML="Y-Min and Y-Max swapped";
         }
-        else generalError.innerHTML+="&& Y-Min and Y-Max swapped";
+        else generalError.innerHTML+=" & Y-Min and Y-Max swapped";
     }
 
     //create row and cell with x
@@ -101,6 +106,10 @@ function inputCheck(input, error){
         error.innerHTML = "Please only enter numbers";
         return false;
     }
+    if(input.includes("e")){
+        error.innerHTML = "Please only enter integers";
+        return false;
+    }
     if(input == ""){
         error.innerHTML = "Please fill all fields";
         return false;
@@ -108,6 +117,9 @@ function inputCheck(input, error){
     if(input > 50 || input < -50){
         error.innerHTML = "Please provide integers between -50 and 50.";
         return false;
+    }
+    if(input != Math.round(input)){
+        generalError.innerHTML = "All numbers rounded to nearest integer";
     }
     return true;
 }
