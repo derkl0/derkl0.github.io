@@ -1,13 +1,14 @@
 /*
-File: /~dlamorea/public_html/css/style.css
-Assignment 4: Update personal website using bootstrap
+File: derkl0.github.io/a5/a5style.css
+Assignment 5: Creating an Interactive Dynamic Table
 Derek Lamoreaux - derek_lamoreaux@student.uml.edu
 UML Student in 91.61 GUI Programming I
-This part builds on your homework 2.You are to enhance that page with bootstrap. Now you need to handle your styling with Bootstrap. We will mainly be testing out your website fluidity (responsive and mobile friendly) and a good design using bootstrap.Bootstrap should be applied to all your pages
-File created 9/4/2020
-Updated 10/13/2020
+For this assignment you will create a table completely dynamically based on parameters entered in an HTML form.First, you must create a form that accepts the starting and ending numbers for both the horizontal (multiplier) and vertical (multiplicand) axes of a multiplication table.Second, you will use the numbers entered into the form to create a multiplicationtable completely dynamically.What you will create is commonly called a“single page web app” (or application)
+File created 10/27/2020
+Updated 10/28/2020
 */
 
+/*header background*/
 .header {
     padding: 20px;
     text-align: center;
@@ -16,10 +17,12 @@ Updated 10/13/2020
     background-size:cover;
 }
 
+/* set background correct size */
 html{
     height: 100%;
 }
 
+/* set background */
 body{
     background-image: url("../images/background2.png");
     background-repeat: no-repeat;
@@ -27,6 +30,7 @@ body{
     background-attachment:fixed;
 }
 
+/* set input field width */
 .inputField{
     width: 35%;
     margin-left: 5%;
@@ -34,6 +38,7 @@ body{
     margin-bottom: 15px;
 }
 
+/* put opaque backgrounds behind body sections */
 .col{
     background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
@@ -46,19 +51,13 @@ body{
     border-radius: 10px;
 }
 
+/* footer center and pad */
 footer{
     padding-top: 100px;
     text-align: center;
 }
 
-.bert img {
-    margin-left: auto;  
-    margin-right: auto;
-    margin-top: 15px;
-    margin bottom: 15px;
-    display: block;
-}
-
+/* remove left padding and center the table  */
 #cont {
     margin-top: 50px;
     padding-left: 0px;
@@ -66,13 +65,15 @@ footer{
     margin: auto;
 }
 
+/* remove left padding and allow the table to scroll 
+rather than rolling over the side of the page  */
 #wrap {
     padding-left: 0px;
     overflow: auto;
     max-height: 1000px
-
 }
 
+/* remove left padding and set the text and background color on the table  */
 #table {
     padding-left: 0px;
     margin-left: 0px;
@@ -80,6 +81,7 @@ footer{
     background-color: #b88c8f;
 }
 
+/* leftmost column color change and stick to left when scrolling  */
 td:first-child {
     background-color: #c47279;
     font-weight: bold;
@@ -89,6 +91,7 @@ td:first-child {
     z-index: 1;
 }
 
+/* uppermost column color change and stick to top when scrolling  */
 tr:first-child > td {
     background-color: #c47279;
     font-weight: bold;
@@ -98,6 +101,12 @@ tr:first-child > td {
     z-index: 2;
 }
 
+/* make errors red  */
+.errorMessage{
+    color: red;
+}
+
+/* allow the table to scroll rather than rolling over the side of the page  */
 @media (max-width: 500px) {
     #wrap {
         height: auto;
