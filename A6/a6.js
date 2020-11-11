@@ -8,15 +8,15 @@ File created 10/27/2020
 Updated 10/28/2020
 */
 
+//disable page refresh on button press
 $("#inputForm").submit(function(e) {
     e.preventDefault();
 });
-// Wait for the DOM to be ready
+// Wait for page to load
 $().ready(function() {
     // Initialize form validation on the registration form.
-    // It has the name attribute "registration"
     $("#inputForm").validate({
-        // Specify validation rules
+        // Specify rules for inputs
         rules: {
             xMin: {
                 required: true,
@@ -55,6 +55,7 @@ $().ready(function() {
             }
         },
     });
+    //change default min and max error messages
     $.extend($.validator.messages, {
         min: 'Please enter an integer between -50 and 50',
         max: 'Please enter an integer between -50 and 50'
