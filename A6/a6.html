@@ -1,0 +1,149 @@
+<!--
+File: derkl0.github.io/a6/a6.html
+Assignment 6: Using the jQuery Validation Plugin with Your Dynamic Table
+Derek Lamoreaux - derek_lamoreaux@student.uml.edu
+UML Student in 91.61 GUI Programming I
+Modify your page to validate all data entered by the user using the jQuery Validation plugin (http://plugins.jquery.com)or foundhere (https://jqueryvalidation.org/)andprevent the form from being submitted (or the table from being regenerated) if the user’s entry contains an error.If there is no error, regenerate the table as in the previous assignment.
+File created 10/27/2020
+Updated 10/28/2020
+-->
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="a6style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- Web title -->
+        <title>Derek Lamoreaux - GUI I</title>
+    </head>
+
+    <body>
+        <div class = header>
+            <!-- First header -->
+            <h1>Derek Lamoreaux</h1>
+            <!-- second header -->
+            <h3>UML Computer Science 2021</h3>
+        </div>
+
+        <!-- Navigation bar, adapted from a tutorial on w3schools.com-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../bert.html">Pictures of Bert</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/wow_wow_wow_wow_wow_wow_wow/" target="_blank">
+                            <img src="../images/instalogo.png"
+                                 alt="Instagram Logo"
+                                 width="15"
+                                 height="15"/></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Third header -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-2 col-sm-1"></div>
+                <div class="col col-md-6 col-sm-8 col-sm-10">
+                    <h4>Multiplication table:</h4>
+                    <!-- prompt and input form -->
+                    Please enter numbers between -50 and 50<br>
+                    Numbers must be integers<br>
+                    Min value should be less than Max
+                </div>
+                <div class="col-md-3 col-sm-2 col-sm-1"></div>
+            </div>
+
+            <div class="col container inputForm">
+                <div class="container">
+                    <form class="form-horizontal" id="inputForm" action="/action_page.php">
+
+
+                        <div class="inputHeader col-sm-12 text-center">Please enter x-axis values</div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-6 ">
+                                <div class="inputField">
+                                    <input onkeydown="return event.keyCode !== 69" type="number" class="form-control" id="xMin" name="xMin" min="-50" max="50" placeholder="X-Axis Min" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <div class="inputField">
+                                    <input onkeydown="return event.keyCode !== 69" type="number" class="form-control" id="xMax" name="xMax" min="-50" max="50" placeholder="X-Axis Max" required>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="inputHeader col-sm-12 text-center">Please enter y-axis values</div>
+
+                        <div class="row text-center">
+                            <div class="form-group col-sm-6">
+                                <div class="inputField">
+                                    <input onkeydown="return event.keyCode !== 69" type="number" class="form-control" id="yMin" name="yMin" min="-50" max="50" placeholder="Y-Axis Mix" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                                <div class="inputField">
+                                    <input onkeydown="return event.keyCode !== 69" type="number" class="form-control" id="yMax" name="yMax" min="-50" max="50" placeholder="Y-Axis Max" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="container">
+                        <button class="btn-white" onclick="getValues()">Generate Table</button>
+                    </div>
+                </div>
+                <div class="container">
+                    <div id="generalError"></div>
+                </div>
+            </div> 
+        </div> 
+
+
+        <div class="container" id="wrap">
+            <div class="col-lg-10" id="cont">
+                <!-- table with stripes -->
+                <table class="table table-striped table-dark table-bordered" id="table"></table>
+            </div>
+        </div>
+        <!--  end page content -->
+
+        <!-- footer start -->
+        <footer>
+            <p>&copy; Derek Lamoreaux 2020</p>
+        </footer>
+
+        <!-- scripts -->
+        <script src="a6.js"></script>
+
+    </body>
+</html>
