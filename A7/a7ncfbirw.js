@@ -24,7 +24,13 @@ $().ready(function() {
         $( "#" + panelId ).remove();
         $("div#myTabs").tabs( "refresh" );
     });
-    
+     
+
+
+    $( "#myTabs" ).on( "click", "input[type=checkbox]", function() {
+        console.log("click");
+        $(this).attr("checked")
+    });
     // Initialize form validation on the registration form.
     $("#inputForm").validate({
         // Specify rules for inputs
@@ -105,11 +111,12 @@ function makeTable() {
     // Add classes to table, styled by bootsrap
     table.className = "table table-striped table-dark table-bordered table-wrap";
 
+    
     //Create tab and link to table
     var tableName = xMin +" "+ xMax +" "+ yMin +" "+ yMax;
     var tabNum = $("div#myTabs ul li").length;
-    $("div#myTabs ul").append("<li><a href=#table"+tabNum+">" + tableName + "<span class='ui-icon ui-icon-close' role='presentation'></span> </li>");
-
+    $("div#myTabs ul").append("<li><a href=#table"+tabNum+">" + tableName + "<span class='ui-icon ui-icon-close' role='presentation'></span> <input class='tab-checkbox' type='checkbox'/></li>");
+    //$("div#myTabs ul").append(checkBox);
 
     // Set table ID and append to table tabs
     table.setAttribute("id", "table"+tabNum);
@@ -167,14 +174,7 @@ function makeTable() {
     }
 }
 
-$("#deleteAllTabs").click(function(){
-    var tab_count = $('div#myTabs ul li').length;
-    for (i=0; i<tab_count; i++){
-        $('#myTabs ul li').remove(0);
-        $("table").remove(0);
-    }
-    $("#myTabs").tabs();
-});
+
 
 function updateTable() {
 
@@ -202,9 +202,9 @@ function updateTable() {
     
     //var active = $("#myTabs").tabs( "option", "active" );
     var active = $("div#myTabs").tabs("option", "active");
-    console.log(active);
+    //console.log(active);
     var table = $("#table" + active)[0];
-    console.log(table);
+    //console.log(table);
     var row;
     var cell;
 
@@ -339,17 +339,49 @@ $(document).ready(function(){
 // xStartingNum
 $("#xMin").change(function() {
     $("#xMinSlider").slider("value", $(this).val());
+    updateTable();
 });
 // xEndingNum
 $("#xMax").change(function() {
     $("#xMaxSlider").slider("value", $(this).val());
+    updateTable();
 });
 // yStartingNum
 $("#yMin").change(function() {
     $("#yMinSlider").slider("value", $(this).val());
+    updateTable();
 });
 // yEndingNum
 $("#yMax").change(function() {
     $("#yMaxSlider").slider("value", $(this).val());
+    updateTable();
 });
+
+$("#deleteAllTabs").click(function(){
+    var tab_count = $('div#myTabs ul li').length;
+    for (i=0; i<tab_count; i++){
+        $('#myTabs ul li').remove(0);
+        $("table").remove(0);
+    }
+    $("#myTabs").tabs();
+});
+
+$("#deleteSelectedTabs").click(function(){
+    var tab_count = $('div#myTabs ul li').length;
+        for (i=0; i<tab_count; i++){
+            if($('#myTabs ul li')[i].is(":checked")){
+                $('#myTabs ul li').remove(i);
+                $("table").remove(0);
+            }
+            
+        }
+    
+//    var tab_count = $('div#myTabs ul li').length;
+//    for (i=0; i<tab_count; i++){
+//        $('#myTabs ul li').remove(0);
+//        $("table").remove(0);
+//    }
+//    $("#myTabs").tabs();
+});
+
 

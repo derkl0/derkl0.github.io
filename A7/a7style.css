@@ -104,6 +104,15 @@ tr:nth-child(odd) {
 
 }
 
+.checkBoxes{
+    border: 1px solid;
+}
+
+.checkBoxes:li{
+    border: 1px solid;
+}
+
+
 /* allow the table to scroll rather than rolling over the side of the page  */
 @media (max-width: 500px) {
     .table-wrap {
