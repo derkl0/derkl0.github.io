@@ -1,0 +1,114 @@
+/*
+File: derkl0.github.io/a6/a6style.css
+Assignment 6: Using the jQuery Validation Plugin with Your Dynamic Table
+Derek Lamoreaux - derek_lamoreaux@student.uml.edu
+UML Student in 91.61 GUI Programming I
+Modify your page to validate all data entered by the user using the jQuery Validation plugin (http://plugins.jquery.com)or foundhere (https://jqueryvalidation.org/)andprevent the form from being submitted (or the table from being regenerated) if the user’s entry contains an error.If there is no error, regenerate the table as in the previous assignment.
+File created 10/27/2020
+Updated 10/28/2020
+*/
+
+/*header background*/
+.header {
+    padding: 20px;
+    text-align: center;
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+/* set background correct size */
+html{
+    height: 100%;
+}
+
+.error{
+    color: red;
+}
+
+/* set background */
+body{
+    background-image: url("../images/background2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+}
+
+/* set input field width */
+.inputField{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 15px;
+}
+
+/* put opaque backgrounds behind body sections */
+.col{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    min-height: 100px;
+    text-align: center;
+    margin: 10px;
+    width:auto;
+    margin-bottom: 50px;
+    border: 2px;
+    border-radius: 10px;
+}
+
+/* footer center and pad */
+footer{
+    padding-top: 100px;
+    text-align: center;
+}
+
+#myTabs{
+    font-size: 12px;
+}
+
+/* remove left padding and allow the table to scroll 
+rather than rolling over the side of the page  */
+.table-wrap {
+    padding-left: 0px;
+    overflow: auto;
+    max-height: 600px;
+}
+
+/* remove left padding and set the text and background color on the table  */
+.table {
+    padding-left: 0px;
+    margin-left: 0px;
+    color: black;
+}
+
+/* leftmost column color change and stick to left when scrolling  */
+td:first-child {
+    background-color: #c47279;
+    font-weight: bold;
+    position: -webkit-sticky;
+    position: sticky;
+    left: -18px;
+}
+
+/* uppermost column color change and stick to top when scrolling  */
+tr:first-child > td {
+    background-color: #c47279;
+    font-weight: bold;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -15px;
+    z-index: 2;
+}
+
+/* Table zebra stripes */
+tr:nth-child(odd) {
+    background-color: #eee !important;
+
+}
+
+/* allow the table to scroll rather than rolling over the side of the page  */
+@media (max-width: 500px) {
+    .table-wrap {
+        height: auto;
+        overflow: auto;
+        width: 90%; 
+    }
+}
