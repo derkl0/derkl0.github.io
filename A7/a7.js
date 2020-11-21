@@ -21,6 +21,7 @@ $().ready(function() {
     // Close icon: removing the tab on click
     $("#myTabs").on( "click", "span.ui-icon-close", function() {
         var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+        console.log(panelId);
         $( "#" + panelId ).remove();
         $("div#myTabs").tabs( "refresh" );
     });
@@ -85,13 +86,7 @@ function makeTable() {
     var yMin = Math.round(document.getElementById('yMin').value);
     var yMax = Math.round(document.getElementById('yMax').value);
 
-    //set variables to use to print data
-    //var table = document.getElementById("table");
-    //var row = table.insertRow();
-    //var cell = row.insertCell();
-
     //clear table and any error messages
-    //table.innerHTML ="";
     generalError.innerHTML="";
 
     if(!$("#inputForm").valid()){
@@ -109,8 +104,10 @@ function makeTable() {
     //Create tab and link to table
     var tableName = xMin +" "+ xMax +" "+ yMin +" "+ yMax;
     var tabNum = $("div#myTabs ul li").length;
-    $("div#myTabs ul").append("<li><a href=#table"+tabNum+">" + tableName + "<span class='ui-icon ui-icon-close' role='presentation'> </span></li>");
-
+    $("div#myTabs ul").append("<li><a href=#table"+tabNum+"> #" + tabNum + ": " + tableName + "<span class='ui-icon ui-icon-close' role='presentation'> </span></li>");
+    
+    $("#checkboxes ul").append("<label>#" + tabNum + "<input type=checkbox id=checkbox"+ tabNum + " class=boxes></label>");
+    
     // Set table ID and append to table tabs
     table.setAttribute("id", "table"+tabNum);
     myTabs.appendChild(table);
@@ -166,8 +163,6 @@ function makeTable() {
     }
 }
 
-
-
 function updateTable() {
 
     //boolean for validation
@@ -180,33 +175,19 @@ function updateTable() {
     var yMax = Math.round(document.getElementById('yMax').value);
 
     //clear table and any error messages
-    //table.innerHTML ="";
     generalError.innerHTML="";
 
     if(!$("#inputForm").valid()){
         return;
     }
 
-    //var active = $("#myTabs").tabs( "option", "active" );
     var active = $("div#myTabs").tabs("option", "active");
-    //console.log(active);
     var table = $("#table" + active)[0];
-    //console.log(table);
     var row;
     var cell;
 
-    // Add classes to table, styled by bootsrap
-    table.className = "table table-striped table-dark table-bordered table-wrap";
-
     //Create tab and link to table
     var tableName = xMin +" "+ xMax +" "+ yMin +" "+ yMax;
-    //var tabNum = $("div#myTabs ul li").length;
-    //$("div#myTabs ul").append("<li><a href=#table"+tabNum+">" + tableName + "<span class='ui-icon ui-icon-close' //role='presentation'></span> </li>");
-
-
-    // Set table ID and append to table tabs
-    //table.setAttribute("id", "table"+tabNum);
-    //myTabs.appendChild(table);
 
     $("div#myTabs").tabs("refresh");
 
@@ -352,20 +333,19 @@ $("#deleteAllTabs").click(function(){
 
 $("#deleteSelectedTabs").click(function(){
     var tab_count = $('div#myTabs ul li').length;
+    var boxes = document.getElementsByClassName('boxes');
+    console.log(tab_count);
     for (i=0; i<tab_count; i++){
-        if($('#myTabs ul li')[i].is(":checked")){
-            $('#myTabs ul li').remove(i);
-            $("table").remove(0);
+        if($("#checkbox" + i)[0].checked == true) {
+            console.log(boxes[i].parentElement);
+            $('#table' + i).remove();
+            $('#myTabs ul li')[i].remove();
+            boxes[i].parentElement.innerHTML = "";
         }
-
+        $("div#myTabs").tabs("refresh");
     }
 
-    //    var tab_count = $('div#myTabs ul li').length;
-    //    for (i=0; i<tab_count; i++){
-    //        $('#myTabs ul li').remove(0);
-    //        $("table").remove(0);
-    //    }
-    //    $("#myTabs").tabs();
+    console.log(boxes);
 });
 
 
