@@ -1,11 +1,11 @@
 /*
-File: derkl0.github.io/a6/a6.js
-Assignment 6: Using the jQuery Validation Plugin with Your Dynamic Table
+File: derkl0.github.io/A7/a7.js
+Assignment 7: Using the jQuery UI Plugin with Your Dynamic Table
 Derek Lamoreaux - derek_lamoreaux@student.uml.edu
-UML Student in 91.61 GUI Programming I
-Modify your page to validate all data entered by the user using the jQuery Validation plugin (http://plugins.jquery.com)or foundhere (https://jqueryvalidation.org/)andprevent the form from being submitted (or the table from being regenerated) if the user’s entry contains an error.If there is no error, regenerate the table as in the previous assignment.
+Add jQuery UI sliders for each of your text input fields.Manipulating a slider should change the value in the corresponding text input field dynamically.That is, moving the slider should 
+instantly change the text input field value. Likewise, typing into the text input field should change the value indicated by the slider. Your table should update dynamically when either the slider is changed or a new text value is entered.b.The second major modification is to implement a jQuery UI tabbed interface.Each time you create a new table, display it in a new tab and label that tab with the four parameters used to create it.
 File created 10/27/2020
-Updated 10/28/2020
+Updated 11/21/2020
 */
 
 //disable page refresh on button press
@@ -18,7 +18,7 @@ $().ready(function() {
     //initialize tabs
     $("#myTabs").tabs();
     
-    // Close icon: removing the tab on click
+    // Close icon: removing the tab on click (removed funtion)
     /*$("#myTabs").on( "click", "span.ui-icon-close", function() {
         var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
         console.log(panelId);
@@ -86,22 +86,25 @@ function makeTable() {
     var yMin = Math.round(document.getElementById('yMin').value);
     var yMax = Math.round(document.getElementById('yMax').value);
     
+    //haha nice
     if(xMin == 69 && xMax == 69 && yMin == 69 && yMax == 69){
         window.open("https://scontent-lga3-1.cdninstagram.com/v/t51.2885-19/s320x320/117820570_223166249072422_7883241413037275009_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_ohc=YHm9oVjUEUgAX8BSXXX&tp=1&oh=8352b3fa94f63f8a68cae2541fa338a4&oe=5FE397F3");
     }
 
     //clear table and any error messages
     generalError.innerHTML="";
-
+    
+    //dont try to build table if input not valid
     if(!$("#inputForm").valid()){
         return;
     }
-
+    
+    //make new table
     var table = document.createElement('table');
     var row;
     var cell;
 
-    // Add classes to table, styled by bootsrap
+    // Add classes to table, styled by bootstrap
     table.className = "table table-striped table-dark table-bordered table-wrap";
 
 
@@ -109,17 +112,18 @@ function makeTable() {
     var tableName = "x: \(" +xMin +", "+ xMax +"\) y:\("+ yMin +", "+ yMax + "\)";
     var tabNum = $("div#myTabs ul li").length;
     $("div#myTabs ul").append("<li><a href=#table"+tabNum+"> #" + (tabNum + 1) + ": " +tableName+ "</li>");
-    
-    //$("div#myTabs ul").append("<li><a href=#table"+tabNum+"> #" + tabNum + ": " +tableName+ "<label " + tableName + "></label><span class='ui-icon ui-icon-close' role='presentation'> </span></li>");
-    
+
+    //create checkbox for deleting tabs
     $("#checkboxes ul").append("<label> #" + (tabNum + 1) + "<input type=checkbox id=checkbox"+ tabNum + " class=boxes></label>");
     
     // Set table ID and append to table tabs
     table.setAttribute("id", "table"+tabNum);
     myTabs.appendChild(table);
 
+    //refresh tabs
     $("div#myTabs").tabs("refresh");
-
+    
+    //set the new tab as active
     $("div#myTabs").tabs({ active: tabNum});
 
 
@@ -169,6 +173,7 @@ function makeTable() {
     }
 }
 
+//function to dynamically update the table when you move the slider
 function updateTable() {
 
     //boolean for validation
@@ -182,21 +187,23 @@ function updateTable() {
 
     //clear table and any error messages
     generalError.innerHTML="";
-
+    
+    //dont try if not valid input
     if(!$("#inputForm").valid()){
         return;
     }
 
+    //grab active tab name and tag
     var active = $("div#myTabs").tabs("option", "active");
     var table = $("#table" + active)[0];
     var row;
     var cell;
     
-    console.log(active);
     //Update tab text
     console.log($("#myTabs ul li"));
-    $("#myTabs ul li")[active].firstChild.innerHTML = "#" + (active + 1) + "x: \(" +xMin +", "+ xMax +"\) y:\("+ yMin +", "+ yMax + "\)"; //"<span class='ui-icon ui-icon-close' role='presentation'> </span>";
+    $("#myTabs ul li")[active].firstChild.innerHTML = "#" + (active + 1) + "x: \(" +xMin +", "+ xMax +"\) y:\("+ yMin +", "+ yMax + "\)";
 
+    //refresh tabs
     $("div#myTabs").tabs("refresh");
 
     //if min > max swap and display a non-fatal error
@@ -220,7 +227,8 @@ function updateTable() {
         }
         else generalError.innerHTML+=" & Y-Min and Y-Max swapped";
     }
-
+    
+    //clear table before redrawing
     table.innerHTML ="";
 
     //create row and cell with x
@@ -248,23 +256,23 @@ function updateTable() {
 }
 
 // jQuery Slider functions
-// xStart
 $(document).ready(function(){
     $(function() {
         $("#xMinSlider").slider({
             min: -50,
             max: 50,
+            //on slide, update table
             slide: function( event, ui ) {
                 $( "#xMin" ).val( ui.value );
                 updateTable();
 
             },
+            //on change, update table
             change: function( event, ui ) {
                 updateTable();
             }
         });
     });
-    // xEnd
     $(function() {
         $("#xMaxSlider" ).slider({
             min: -50,
@@ -278,7 +286,6 @@ $(document).ready(function(){
             }
         });
     });
-    // yStart
     $(function() {
         $( "#yMinSlider" ).slider({
             min: -50,
@@ -292,7 +299,6 @@ $(document).ready(function(){
             }
         });
     });
-    // yEnd
     $(function() {
         $( "#yMaxSlider" ).slider({
             min: -50,
@@ -309,27 +315,24 @@ $(document).ready(function(){
 });
 
 // jQuery when text input is changed slider updates.
-// xStartingNum
 $("#xMin").change(function() {
     $("#xMinSlider").slider("value", $(this).val());
     updateTable();
 });
-// xEndingNum
 $("#xMax").change(function() {
     $("#xMaxSlider").slider("value", $(this).val());
     updateTable();
 });
-// yStartingNum
 $("#yMin").change(function() {
     $("#yMinSlider").slider("value", $(this).val());
     updateTable();
 });
-// yEndingNum
 $("#yMax").change(function() {
     $("#yMaxSlider").slider("value", $(this).val());
     updateTable();
 });
 
+//function to delete all open tabs
 $("#deleteAllTabs").click(function(){
     var tab_count = $('div#myTabs ul li').length;
     for (i=0; i<tab_count; i++){
@@ -343,6 +346,7 @@ $("#deleteAllTabs").click(function(){
     
 });
 
+//function to delete selected tabs
 $("#deleteSelectedTabs").click(function(){
     //$('#myTabs').tabs('destroy').tabs();
     var tab_count = $('div#myTabs ul li').length;
@@ -350,15 +354,18 @@ $("#deleteSelectedTabs").click(function(){
     var j = 0;
     for (var i=0; i<tab_count; i++){        
         if(boxes[i].checked == true) {
+            //shiftTables moves the tables to the right of closed tabs over so the indices don't get funky
             shiftTables(i);
             $('#table' + ((tab_count-1)-j)).remove();
             $('#myTabs ul li')[(tab_count-1)-j].remove();
             j++;
         }    
     }
+    //delete the checkboxes
     for(i = 0; i<j; i++){
         boxes[i].parentElement.parentElement.removeChild(boxes[i].parentElement.parentElement.lastChild)
     }
+    //uncheck any remaining boxes
     for(i = 0; i < boxes.length; i++){
         boxes[i].checked = false;
     }  
@@ -366,6 +373,7 @@ $("#deleteSelectedTabs").click(function(){
 
 });
 
+//shiftTables moves the tables to the right of closed tabs over so the indices don't get funky
 function shiftTables(index){
     var tabArray = $('div#myTabs ul li');
     var tab_count = $('div#myTabs ul li').length - 1;

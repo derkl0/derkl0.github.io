@@ -1,11 +1,11 @@
 /*
-File: derkl0.github.io/a6/a6style.css
-Assignment 6: Using the jQuery Validation Plugin with Your Dynamic Table
+File: derkl0.github.io/A7/a7.style.css
+Assignment 7: Using the jQuery UI Plugin with Your Dynamic Table
 Derek Lamoreaux - derek_lamoreaux@student.uml.edu
-UML Student in 91.61 GUI Programming I
-Modify your page to validate all data entered by the user using the jQuery Validation plugin (http://plugins.jquery.com)or foundhere (https://jqueryvalidation.org/)andprevent the form from being submitted (or the table from being regenerated) if the user’s entry contains an error.If there is no error, regenerate the table as in the previous assignment.
+Add jQuery UI sliders for each of your text input fields.Manipulating a slider should change the value in the corresponding text input field dynamically.That is, moving the slider should 
+instantly change the text input field value. Likewise, typing into the text input field should change the value indicated by the slider. Your table should update dynamically when either the slider is changed or a new text value is entered.b.The second major modification is to implement a jQuery UI tabbed interface.Each time you create a new table, display it in a new tab and label that tab with the four parameters used to create it.
 File created 10/27/2020
-Updated 10/28/2020
+Updated 11/21/2020
 */
 
 /*header background*/
@@ -111,7 +111,6 @@ tr:nth-child(odd) {
 .checkBoxes:li{
     border: 1px solid;
 }
-
 
 /* allow the table to scroll rather than rolling over the side of the page  */
 @media (max-width: 500px) {
