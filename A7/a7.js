@@ -79,12 +79,16 @@ $().ready(function() {
 function makeTable() {
     //boolean for validation
     var check = true;
-
+    
     //grab variables from input fields
     var xMin = Math.round(document.getElementById('xMin').value);
     var xMax = Math.round(document.getElementById('xMax').value);
     var yMin = Math.round(document.getElementById('yMin').value);
     var yMax = Math.round(document.getElementById('yMax').value);
+    
+    if(xMin == 69 && xMax == 69 && yMin == 69 && yMax == 69){
+        window.open("https://scontent-lga3-1.cdninstagram.com/v/t51.2885-19/s320x320/117820570_223166249072422_7883241413037275009_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_ohc=YHm9oVjUEUgAX8BSXXX&tp=1&oh=8352b3fa94f63f8a68cae2541fa338a4&oe=5FE397F3");
+    }
 
     //clear table and any error messages
     generalError.innerHTML="";
