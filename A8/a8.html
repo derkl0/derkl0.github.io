@@ -1,0 +1,113 @@
+<!--
+File: /~dlamorea/public_html/bert.html
+Assignment 4: Update personal website using bootstrap
+Derek Lamoreaux - derek_lamoreaux@student.uml.edu
+UML Student in 91.61 GUI Programming I
+
+Build an interactive Scrabble game in JavaScript
+
+File created 12/6/2020
+Updated 12/6/2020
+-->
+<!DOCTYPE html>
+<!-- Set language flag to english -->
+<html lang="en">
+    <!-- begin head -->
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <!-- Set Stylesheet -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"> 
+        <link rel="stylesheet" href="a8.css">
+        
+        <title>Derek Lamoreaux - GUI I</title>
+    </head>
+
+    <body>
+        <div class = header>
+            <!-- First header -->
+            <h1>Derek Lamoreaux</h1>
+            <!-- second header -->
+            <h4>Pictures of my Cat Bert</h4>
+        </div>
+
+        <!-- Navigation bar, adapted from a tutorial on w3schools.com-->   
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://alexbochman.github.io/SWENG_Project/VS-Saturn-3.html">Pomodoro VS-Code Extension</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:derek_lamoreaux@student.uml.edu">Email Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bert.html">Pictures of Bert</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/wow_wow_wow_wow_wow_wow_wow/" target="_blank">
+                            <img src="../images/instalogo.png"
+                                 alt="Instagram Logo"
+                                 width="15"
+                                 height="15"/></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="col container">
+            <div class="row" id="score">
+                <div class="col-sm-3 text-center" id="currentWord">current word:</div>
+                <div class="col-sm-3 text-center" id="wordScore">word score: 0</div>
+                <div class="col-sm-3 text-center" id="remainingTiles">num tiles left:</div>
+                <div class="col-sm-3 text-center" id="currentScore">Current Score:</div>
+            </div><br>
+            <div class="row" id="buttons">
+                <div class="col-sm-4 text-center">
+                    <button type="button" class="btn-white" onclick="newLetters()">New Letters</button>
+                </div>
+                <div class="col-sm-4 text-center">
+                <button type="button" class="btn-white" onclick="newGame()">New Game</button>
+                </div>
+                <div class="col-sm-4 text-center">
+                <button type="button" class="btn-white" onclick="submitWord()">Submit Word</button>
+                </div>
+            </div><br><br>
+            <!--This board will house the individual board pieces, I chose to break them up because
+I couldn't be bothered to learn how to break apart pictures without actually splitting them.-->
+        <!-- generate board here-->
+            <div id="board" class= "container text-center"></div>
+        </div>
+        <!-- generate tile rack here-->
+        
+        <div id="rack" class = "container text-center"></div>
+
+        <!-- footer start -->
+        <footer>
+            <p>&copy; Derek Lamoreaux 2020</p>
+        </footer>
+
+        <!-- JS + BootStrap -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- scripts -->
+        <script src="a8.js"></script>
+    </body>
+</html>

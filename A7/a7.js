@@ -201,7 +201,7 @@ function updateTable() {
     
     //Update tab text
     console.log($("#myTabs ul li"));
-    $("#myTabs ul li")[active].firstChild.innerHTML = "#" + (active + 1) + "x: \(" +xMin +", "+ xMax +"\) y:\("+ yMin +", "+ yMax + "\)";
+    $("#myTabs ul li")[active].firstChild.innerHTML = "#" + (active + 1) + " x: \(" +xMin +", "+ xMax +"\) y:\("+ yMin +", "+ yMax + "\)";
 
     //refresh tabs
     $("div#myTabs").tabs("refresh");
