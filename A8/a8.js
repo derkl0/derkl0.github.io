@@ -1,3 +1,13 @@
+/*
+File: derkl0.github.io/A8/a8.js
+derek_lamoreaux@student.uml.edu
+
+Assignment 8: Create interactive Scrabble game in javascript
+
+File created 12/6/2020
+Updated 12/10/2020
+*/
+
 /*jslint browser: true*/
 /*global $, jQuery*/
 
@@ -281,7 +291,8 @@ function newGame(){
 //submits the word, removes letters from board, adds up score, and gives the user new tiles.
 function submitWord(){
     var currentBoard = document.getElementById("board");
-
+    
+    //checks how long the word is
     var firstLetter = 0, lastLetter = 0, letterCount = 0, i = 0, check;
     for (i = 0; i < currentBoard.children.length; i++) {
         check = currentBoard.children[i];
@@ -290,9 +301,11 @@ function submitWord(){
             letterCount++;
         }
     }
-
+    
+    //check to ensure word is valid
     if(document.getElementById("currentWord").innerHTML == "current word:") return false;
-
+    
+//adds up points
     var test = document.getElementById("board"), wordScoreMult = 1, totalScore = 0, currentWord = "", i = 0;
     for (i = 0; i < test.children.length; i++) {
         totalScore += parseInt(test.children[i].getAttribute("points"));
@@ -305,14 +318,17 @@ function submitWord(){
         if(test.children[i].getAttribute("isLetter") == "true")
             currentWord += tiles[parseInt(test.children[i].getAttribute("location"))].letter;
     }
+    //if used all 7 letters, bonus 50 points
     totalScore = totalScore * wordScoreMult;
     if (letterCount == 7) totalScore += 50;
 
+    //add to score and update info
     currentScore += totalScore;
     document.getElementById("wordScore").innerHTML = "Word Score: ";
     document.getElementById("currentWord").innerHTML = "Current Word: ";
     document.getElementById("currentScore").innerHTML = "Current Score: " + currentScore;
 
+    //replace used tiles
     for(i = 0; i < letterCount; i++){
         var temp = Math.floor(Math.random() * 26);
         while(tiles[temp].remain < 1){
@@ -328,5 +344,7 @@ function submitWord(){
         initialize_board();
         totalTiles -= letterCount;
     } 
+    
+    //update remaining tiles
     document.getElementById("remainingTiles").innerHTML = "Remaining Tiles: " + totalTiles; 
 }

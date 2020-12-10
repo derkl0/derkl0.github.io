@@ -1,13 +1,11 @@
 <!--
-File: /~dlamorea/public_html/bert.html
-Assignment 4: Update personal website using bootstrap
-Derek Lamoreaux - derek_lamoreaux@student.uml.edu
-UML Student in 91.61 GUI Programming I
+File: derkl0.github.io/A8/a8.html
+derek_lamoreaux@student.uml.edu
 
-Build an interactive Scrabble game in JavaScript
+Assignment 8: Create interactive Scrabble game in javascript
 
 File created 12/6/2020
-Updated 12/6/2020
+Updated 12/10/2020
 -->
 <!DOCTYPE html>
 <!-- Set language flag to english -->
@@ -68,31 +66,36 @@ Updated 12/6/2020
                 </ul>
             </div>
         </nav>
+        <!-- container for the text and buttons -->
         <div class="col container">
             <div class="row" id="score">
+                <!-- display current word if valid -->
                 <div class="col-sm-3 text-center" id="currentWord">current word:</div>
+                <!-- display score for current word if valid -->
                 <div class="col-sm-3 text-center" id="wordScore">word score: 0</div>
+                <!-- display number of tiles remaining in the "bag" -->
                 <div class="col-sm-3 text-center" id="remainingTiles">num tiles left:</div>
+                <!-- Cumulative score -->
                 <div class="col-sm-3 text-center" id="currentScore">Current Score:</div>
             </div><br>
             <div class="row" id="buttons">
                 <div class="col-sm-4 text-center">
+                    <!-- Button to shuffle and redraw new tiles -->
                     <button type="button" class="btn-white" onclick="newLetters()">New Letters</button>
                 </div>
                 <div class="col-sm-4 text-center">
-                <button type="button" class="btn-white" onclick="newGame()">New Game</button>
+                    <!-- Button to reset and start a new game -->
+                    <button type="button" class="btn-white" onclick="newGame()">New Game</button>
                 </div>
                 <div class="col-sm-4 text-center">
-                <button type="button" class="btn-white" onclick="submitWord()">Submit Word</button>
+                    <!-- Button to submit word -->
+                    <button type="button" class="btn-white" onclick="submitWord()">Submit Word</button>
                 </div>
             </div><br><br>
-            <!--This board will house the individual board pieces, I chose to break them up because
-I couldn't be bothered to learn how to break apart pictures without actually splitting them.-->
-        <!-- generate board here-->
+            <!-- generate board here-->
             <div id="board" class= "container text-center"></div>
         </div>
         <!-- generate tile rack here-->
-        
         <div id="rack" class = "container text-center"></div>
 
         <!-- footer start -->
