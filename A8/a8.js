@@ -215,9 +215,11 @@ function newLetters(){
     if(totalTiles > 6) tileCount = 7;
     else tileCount = totalTiles;
     for(var i = 0; i < tileCount; i++){
-        var temp = Math.floor(Math.random() * 26);
+        var temp = Math.floor(Math.random() * 25);
         while(tiles[temp].remain < 1){
-            temp = Math.round(Math.random() * 26);
+            do{
+                temp = Math.round(Math.random() * 25);
+            }while(temp < 0 || temp > 25);
         }
         $("#rack").append("<img src=" + tiles[temp].file + " points=" + tiles[temp].points + " location=" + temp +" height='75' class='drags'' id= " + tiles[temp].letter + ">");
         tiles[temp].remain -= 1;
@@ -278,6 +280,10 @@ function newGame(){
     for(var i = 0; i < tiles.length; i++){
         tiles[i].remain = tiles[i].amount;
     }
+    
+    /*for(i = 0; i < 26; i++){
+        console.log(tiles[i]);
+    }*/
     //reset all variables to default values
     totalTiles = 100;
     //call init functions
@@ -291,7 +297,7 @@ function newGame(){
 //submits the word, removes letters from board, adds up score, and gives the user new tiles.
 function submitWord(){
     var currentBoard = document.getElementById("board");
-    
+
     //checks how long the word is
     var firstLetter = 0, lastLetter = 0, letterCount = 0, i = 0, check;
     for (i = 0; i < currentBoard.children.length; i++) {
@@ -301,11 +307,11 @@ function submitWord(){
             letterCount++;
         }
     }
-    
+
     //check to ensure word is valid
     if(document.getElementById("currentWord").innerHTML == "current word:") return false;
-    
-//adds up points
+
+    //adds up points
     var test = document.getElementById("board"), wordScoreMult = 1, totalScore = 0, currentWord = "", i = 0;
     for (i = 0; i < test.children.length; i++) {
         totalScore += parseInt(test.children[i].getAttribute("points"));
@@ -324,27 +330,36 @@ function submitWord(){
 
     //add to score and update info
     currentScore += totalScore;
+    totalTiles -= letterCount;
+
     document.getElementById("wordScore").innerHTML = "Word Score: ";
     document.getElementById("currentWord").innerHTML = "Current Word: ";
     document.getElementById("currentScore").innerHTML = "Current Score: " + currentScore;
-
     //replace used tiles
+    if(totalTiles > 6) letterCount = 7;
+    else letterCount = totalTiles;
     for(i = 0; i < letterCount; i++){
-        var temp = Math.floor(Math.random() * 26);
+        var temp = Math.floor(Math.random() * 25);
+        console.log("temp: " + temp);
+        console.log("tiles[temp]: " + tiles[temp]);
         while(tiles[temp].remain < 1){
-            temp = Math.round(Math.random() * 26);
+            temp = Math.round(Math.random() * 25);
+            console.log("temp: " + temp);
+            console.log("tiles[temp]: " + tiles[temp]);
         }
         $("#rack").append("<img src=" + tiles[temp].file + " points=" + tiles[temp].points + " location=" + temp +" height='75' class='drags' id= " + tiles[temp].letter + ">");
         tiles[temp].remain -= 1;
     }
-    if(totalTiles > 6){
-        $(".drags").draggable({
-            revert: true,
-        });
-        initialize_board();
-        totalTiles -= letterCount;
-    } 
+    $(".drags").draggable({
+        revert: true,
+    });
+    initialize_board();
     
+    
+    if(totalTiles == 0){
+        document.getElementById("board").innerHTML = "GAME OVER.";
+    }
+
     //update remaining tiles
     document.getElementById("remainingTiles").innerHTML = "Remaining Tiles: " + totalTiles; 
 }
