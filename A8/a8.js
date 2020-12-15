@@ -332,9 +332,7 @@ function submitWord(){
     document.getElementById("currentScore").innerHTML = "Current Score: " + currentScore;
     
     //replace used tiles
-    if(totalTiles > 6) letterCount = 7;
-    else letterCount = totalTiles;
-    for(i = 0; i < letterCount; i++){
+    for(i = 0; i < letterCount && i < totalTiles; i++){
         var temp = Math.floor(Math.random() * 25);
         console.log("temp: " + temp);
         console.log("tiles[temp]: " + tiles[temp]);
