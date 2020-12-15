@@ -177,10 +177,10 @@ function initialize_rack(){
     //get pointer and generate random tiles
     document.getElementById("rack").innerHTML = "<br><br>";
     for(var i = 0; i < 7 && totalTiles > 6; i++){
-        var temp = Math.floor(Math.random() * 26);
+        var temp = Math.floor(Math.random() * 25);
 
         while(tiles[temp].remain < 1){
-            temp = Math.round(Math.random() * 26);
+            temp = Math.round(Math.random() * 25);
         }
         //add tiles to rack and remove them from the pool
         $("#rack").append("<img src=" + tiles[temp].file + " points=" + tiles[temp].points + " location=" + temp +" height='75' class='drags' id= " + tiles[temp].letter + ">");
@@ -217,9 +217,7 @@ function newLetters(){
     for(var i = 0; i < tileCount; i++){
         var temp = Math.floor(Math.random() * 25);
         while(tiles[temp].remain < 1){
-            do{
-                temp = Math.round(Math.random() * 25);
-            }while(temp < 0 || temp > 25);
+            temp = Math.round(Math.random() * 25);
         }
         $("#rack").append("<img src=" + tiles[temp].file + " points=" + tiles[temp].points + " location=" + temp +" height='75' class='drags'' id= " + tiles[temp].letter + ">");
         tiles[temp].remain -= 1;
@@ -280,10 +278,7 @@ function newGame(){
     for(var i = 0; i < tiles.length; i++){
         tiles[i].remain = tiles[i].amount;
     }
-    
-    /*for(i = 0; i < 26; i++){
-        console.log(tiles[i]);
-    }*/
+
     //reset all variables to default values
     totalTiles = 100;
     //call init functions
@@ -335,6 +330,7 @@ function submitWord(){
     document.getElementById("wordScore").innerHTML = "Word Score: ";
     document.getElementById("currentWord").innerHTML = "Current Word: ";
     document.getElementById("currentScore").innerHTML = "Current Score: " + currentScore;
+    
     //replace used tiles
     if(totalTiles > 6) letterCount = 7;
     else letterCount = totalTiles;
@@ -354,7 +350,6 @@ function submitWord(){
         revert: true,
     });
     initialize_board();
-    
     
     if(totalTiles == 0){
         document.getElementById("board").innerHTML = "GAME OVER.";
