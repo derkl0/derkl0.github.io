@@ -4,8 +4,9 @@
 {\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid1\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid101\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
-{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid201\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid202\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid3}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid201\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{square\}}{\leveltext\leveltemplateid301\'01\uc0\u9642 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid302\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid4}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}}
 \margl1440\margr1440\vieww11960\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -57,23 +58,31 @@ I was able to implement:\
 \f1 \uc0\u9642 
 \f0 	}\expnd0\expndtw0\kerning0
 \outl0\strokewidth0 \strokec2 User can always restart the game.\
+\pard\tx720\pardeftab720\sl300\partightenfactor0
+\cf2 \
+Extras I implemented:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl300\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f1 \uc0\u9642 
+\f0 	}In scrabble, if you manage to use all your available letters for a word, you get 50 bonus points, so I added that in.\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
 \pard\pardeftab720\sl300\partightenfactor0
 \cf2 \
 Features which I did not implement (and why):\
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl300\partightenfactor0
-\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
 \f1 \uc0\u9642 
 \f0 	}\expnd0\expndtw0\kerning0
 Once the tile is placed on the Scrabble board, it can not be moved.\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl300\partightenfactor0
-\ls3\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}I chose not to do this, because I\'92m only implementing a single line.\expnd0\expndtw0\kerning0
+\ls4\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}I chose not to do this, because I\'92m only implementing a single line.\expnd0\expndtw0\kerning0
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl300\partightenfactor0
-\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	
+\ls4\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	
 \f1 \uc0\u9642 
 \f0 	}\expnd0\expndtw0\kerning0
 Except for the first letter, all sub-subsequent letters must be placed directly next to or below another letter with no space. Else, they will bounce back to the \'93rack\'94.\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\sl300\partightenfactor0
-\ls3\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}I did not have the patience to do this after the rest of the coding. Instead, i just made it so that the score will not be counted, and the word cannot be submitted if there is a gap between letters.\expnd0\expndtw0\kerning0
+\ls4\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8259 	}I did not have the patience to do this after the rest of the coding. Instead, i just made it so that the score will not be counted, and the word cannot be submitted if there is a gap between letters.\expnd0\expndtw0\kerning0
 \
 }

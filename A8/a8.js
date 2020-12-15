@@ -304,7 +304,7 @@ function submitWord(){
     }
 
     //check to ensure word is valid
-    if(document.getElementById("currentWord").innerHTML == "current word:") return false;
+    if(document.getElementById("currentWord").innerHTML == "Current Word: ") return false;
 
     //adds up points
     var test = document.getElementById("board"), wordScoreMult = 1, totalScore = 0, currentWord = "", i = 0;
