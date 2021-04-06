@@ -68,7 +68,6 @@ function calculate_score(letterCount) {
             wordScoreMult *= test.children[i].getAttribute("wordMultiplier");
             currentWord += tiles[parseInt(test.children[i].getAttribute("location"))].letter;
         }
-
     }
 
     //apply word multipliers
